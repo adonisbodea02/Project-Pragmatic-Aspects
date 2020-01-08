@@ -31,7 +31,7 @@ def lex_string(string):
     for c in string:
         if c == JSON_QUOTE:
             assert type(json_string) == str, "Did not return string!"
-            return json_string, string[len(json_string)+1:]
+            return json_string, string[len(json_string) + 1:]
         else:
             json_string += c
 
