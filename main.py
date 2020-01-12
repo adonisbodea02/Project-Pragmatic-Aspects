@@ -17,12 +17,12 @@ if __name__ == '__main__':
         put_string(1, JSONObjectBuilder().put_list("key1", "value1")).\
         put_list("list", [1, 2, True]).\
         put_object('obj', {'k1': 2, 'k2': 3}).\
-        put_list('list2', ['1"']).\
+        put_list('list2', ['1\"']).\
         put_object('obj', JSONObjectBuilder().put_list("key1", []).build()). \
         put_list('list3', [1, JSONObjectBuilder().put_list("key1", []).build()]).\
+        put_string('1\\n\\', '1\t2').\
         build()
 
     print(jo.json)
 
     from_json([])
-    to_json(1.5)

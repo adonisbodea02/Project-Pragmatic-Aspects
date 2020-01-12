@@ -48,17 +48,23 @@ def lex_number(string):
     json_number = ''
 
     number_characters = [str(d) for d in range(0, 10)] + ['-', '.']
-
+    # un punct maxim, primul caracter e cifra sau minus, daca e minus al doilea e cifra, ultimul e cifra
     for c in string:
         if c in number_characters:
             json_number += c
         else:
             break
 
-    rest = string[len(json_number):]
-
     if not len(json_number):
         return None, string
+
+    if len(json_number) == 1 and (not json_number[0].isnumeric()):
+        raise ValueError('Wrong number format!')
+    elif len(json_number) > 1:
+        if json_number[0] == '.' or json_number.count('.') > 1 or (not json_number[-1].isnumeric()):
+            raise ValueError('Wrong number format!')
+
+    rest = string[len(json_number):]
 
     if '.' in json_number:
         return float(json_number), rest

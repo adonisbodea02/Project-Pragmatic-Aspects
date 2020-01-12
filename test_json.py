@@ -17,7 +17,7 @@ class TestStringMethods:
         assert string_functions.from_json('{"foo":[]}') == {"foo": []}
 
     def test_from_json_basic_array(self):
-        assert string_functions.from_json('{"foo":[1,2,"three"]}') == {"foo": [1, 2, "three"]}
+        assert string_functions.from_json('{"foo":[-1.75,1,2,"three"]}') == {"foo": [-1.75, 1, 2, "three"]}
 
     def test_from_json_nested_object(self):
         assert string_functions.from_json('{"foo":{"bar":2}}') == {"foo": {"bar": 2}}
@@ -48,7 +48,7 @@ class TestStringMethods:
         assert string_functions.to_json({"foo": []}) == '{"foo": []}'
 
     def test_to_json_basic_array(self):
-        assert string_functions.to_json({"foo": [1, 2, "three"]}) == '{"foo": [1, 2, "three"]}'
+        assert string_functions.to_json({"foo": [1, 2, 1.75, "three"]}) == '{"foo": [1, 2, 1.75, "three"]}'
 
     def test_to_json_nested_object(self):
         assert string_functions.to_json({"foo": {"bar": 2}}) == '{"foo": {"bar": 2}}'

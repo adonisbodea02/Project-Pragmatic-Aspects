@@ -26,7 +26,7 @@ def from_json(json_string):
 
 def to_json(obj):
     try:
-        types = [dict, list, str, int, bool, type(None), JSONObject]
+        types = [float, dict, list, str, int, bool, type(None), JSONObject]
         assert type(obj) in types, str(type(obj)) + ' is not an allowed type'
         logger.info('to_json: Received object: ' + str(obj))
         json_type = type(obj)

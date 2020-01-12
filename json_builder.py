@@ -97,7 +97,7 @@ class JSONObjectBuilder(object):
                 raise TypeError("put_number: Key " + str(key) + " is not string!")
             if "'" in key or '"' in key:
                 raise ValueError("put_string: Potential Injection Attack in key: " + key)
-            if not isinstance(value, int):
+            if not isinstance(value, int) or not isinstance(value, float):
                 raise TypeError("put_number: Value " + str(value) + " is not number!")
             memento.fields[key] = value
             del self
